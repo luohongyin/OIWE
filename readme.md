@@ -11,6 +11,8 @@ Use command "make" to compile sourse files in directory. OIWE model is realized 
 ####In Directory bin/:
 The command to run OIWE model is in launcher.sh. Configurations in launcher.sh can be modified. Use "sh launcher.sh" to run the model.
 
+format:
+./word2vec -train <train file> -output <wordvectors file> -size <number of vector dimension> -threads <number of threads> -binary <save as binary: 0 or 1> -cbow 0
 
 ##Experiments
 
