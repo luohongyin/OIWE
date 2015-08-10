@@ -3,6 +3,15 @@
 ##Overview
 This tool provide a method of interpretable word embeddings, which is based on OIWE-IPG model in our paper, Online Learning of Interpretable Word Embeddings.
 
+##Usage
+
+####In Directory word2nve-c/:
+Use command "make" to compile sourse files in directory. OIWE model is realized in word2nvec.c
+
+####In Directory bin/:
+The command to run OIWE model is in launcher.sh. Configurations in launcher.sh can be modified. Use "sh launcher.sh" to run the model.
+
+
 ##Experiments
 
 ####Data
