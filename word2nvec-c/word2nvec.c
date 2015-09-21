@@ -632,25 +632,25 @@ void TrainModel() {
 	for (a = 0; a < num_threads; a++) pthread_create(&pt[a], NULL, TrainModelThread, (void *)a);
 	for (a = 0; a < num_threads; a++) pthread_join(pt[a], NULL);
 	fo = fopen(output_file, "wb");
-	fo2 = fopen(output_file2, "wb");
+	//fo2 = fopen(output_file2, "wb");
 	if (classes == 0) {
 		// Save the word vectors
 		fprintf(fo, "%lld %lld\n", vocab_size, layer1_size);
-		fprintf(fo2, "%lld %lld\n", vocab_size, layer1_size);
+		//fprintf(fo2, "%lld %lld\n", vocab_size, layer1_size);
 		for (a = 0; a < vocab_size; a++) {
 			fprintf(fo, "%s ", vocab[a].word);
 			if (binary) for (b = 0; b < layer1_size; b++) fwrite(&syn0[a * layer1_size + b], sizeof(real), 1, fo);
 			else for (b = 0; b < layer1_size; b++) fprintf(fo, "%lf ", syn0[a * layer1_size + b]);
 			fprintf(fo, "\n");
 		}
-		
+		/*
 		for (a = 0; a < vocab_size; a++){
 			fprintf(fo2, "%s ", vocab[a].word);
 			if (binary) for (b = 0; b < layer1_size; b++) fwrite(&syn1neg[a * layer1_size + b], sizeof(real), 1, fo2);
 			else for (b = 0; b < layer1_size; b++) fprintf(fo2, "%lf ", syn1neg[a * layer1_size + b]);
 			fprintf(fo2, "\n");
 		}
-		
+		*/
 	} else {
 		// Run K-means on the word vectors
 		int clcn = classes, iter = 10, closeid;
